@@ -7,6 +7,11 @@ import time
 import logging
 
 #
+# Input filename
+#
+infname = "words_alpha.txt" # filepath goes here
+
+#
 # Output settings
 #
 filename = "out.csv"
@@ -23,8 +28,8 @@ tic = time.perf_counter()
 #
 # Get 5-letter words that each contain 5 unique letters
 #
-with open("words_alpha.txt", "r") as f:
-    wl = f.read().split("\n")  # all words from the words_alpha.txt file
+with open(infname, "r") as f:
+    wl = f.read().split("\n")  # all words from the input file
     wl5wa = [
         word for word in wl if (len(word) == 5 and len(set(word)) == 5)
     ]  # word list with anagrams
@@ -214,7 +219,7 @@ def backtrack(s):
             backtrack(news)
 
 
-backtrack(CandidateSolution())  # should find 831 solutions
+backtrack(CandidateSolution())  # should find 831 solutions for valid Wordle guesses
 
 toc = time.perf_counter()
 
