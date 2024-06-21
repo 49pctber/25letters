@@ -9,7 +9,7 @@ import logging
 #
 # Input filename
 #
-infname = "words_alpha.txt" # filepath goes here
+infname = "wordlist_small.txt"  # filepath goes here
 
 #
 # Output settings
@@ -98,6 +98,7 @@ for l in alphabet:
     sorted_words = [p[0] for p in sbs]
     lut[l] = sorted_words.copy()
 
+
 #
 # A class that stores information about the current search.
 #
@@ -105,7 +106,7 @@ class CandidateSolution:
     def __init__(self):
         self.words = []
         self.skip = None
-        self.x = [False]*26
+        self.x = [False] * 26
         self.checked = set()
 
     def populate(self, other):
